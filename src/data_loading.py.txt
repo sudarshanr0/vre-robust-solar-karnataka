@@ -1,0 +1,12 @@
+import pandas as pd
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+DATA_RAW = BASE_DIR / "data" / "raw"
+DATA_PROCESSED = BASE_DIR / "data" / "processed"
+
+def load_raw_solar(filename="solar_data_raw.csv"):
+    path = DATA_RAW / filename
+    df = pd.read_csv(path, parse_dates=["date"])
+    df["year"] = df["date"].dt.year
+    return df

@@ -1,0 +1,9 @@
+import pandas as pd
+
+def compute_annual_cf(df, rated_capacity=1.0):
+    sites = [c for c in df.columns if c not in ["date", "year"]]
+    cf = {}
+    for s in sites:
+        annual = df.groupby("year")[s].sum() / (8760 * rated_capacity)
+        cf[s] = annual
+    return pd.DataFrame(cf)
