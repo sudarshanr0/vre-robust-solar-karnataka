@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+
+.ipynb_checkpoints/
+
+.DS_Store
+Thumbs.db
+
+data/raw/*
+data/processed/*
+data/external/*
+reports/figures/*
+
+# keep the toy figures, they are the toys' output
+!reports/figures/toy*.png
